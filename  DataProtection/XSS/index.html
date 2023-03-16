@@ -1,0 +1,28 @@
+  <!-- 
+XSS-01-воспроизведение
+Вызовите alert с надписью 'evil' при клике на кнопку "Search". Менять код для этого не нужно: достаточно вставить правильный текст в поле ввода.
+Для проверки вашего решения:
+Нажмите кнопку «Проверить».
+В течение 30 секунд вставьте свой ответ в поле ввода.
+Нажмите кнопку "Search", которая находится возле инпута.
+Если появилось всплывающее окно, закройте его.
+Решение будет принято либо появится текст ошибки.
+ -->
+
+
+<form id="form">
+  Search: <input type="text" name="p1" size="60" value="">
+  <input type="submit" value="Search">
+</form>
+<div id="result"></div>
+
+<script>
+	form.addEventListener('submit', event => {
+    event.preventDefault();
+    result.innerHTML = event.srcElement[0].value;
+  });
+</script>
+
+<!-- <img src="trash" onerror="alert('evil');"> -->
+<!-- <a href="javascript:alert('evil')">click me</a> -->
+

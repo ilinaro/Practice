@@ -1,0 +1,20 @@
+<!-- 
+XSS-01-устранение
+Исправьте код, чтобы устранить XSS-уязвимость.
+ -->
+
+
+<form id="form">
+    Search: <input type="text" name="p1" size="60" value="">
+    <input type="submit" value="Search">
+  </form>
+  <div id="result"></div>
+  
+  <script>
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const inputValue = event.srcElement[0].value;
+      const sanitizedValue = inputValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      result.innerText = sanitizedValue;
+    });
+  </script>
